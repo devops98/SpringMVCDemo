@@ -27,3 +27,19 @@ node ("master") {
     }
 }
 
+    node ("utimage") {
+        // we can also use: withEnv(['M2_HOME=/usr/share/maven', 'JAVA_HOME=/usr']) {}
+        env.MAVEN_HOME = '/usr/share/maven'
+        env.M2_HOME = '/usr/share/maven'
+        env.JAVA_HOME = '/usr'	 
+      
+                
+        stage('Run-ut') {   
+           
+                echo 'Unstash the project source code ...'
+                unstash 'SOURCE_CODE'	                                                       
+                                
+                echo 'Run the unit tests ....'
+                sh "'${M2_HOME}/bin/mvn' clean test"
+}
+}				
