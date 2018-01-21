@@ -15,7 +15,7 @@ node ("master") {
         }
         
         echo 'Change the project version ...'
-        def W_M2_HOME = tool 'Maven'
+        def W_M2_HOME = tool 'Maven_Home'
         bat "${W_M2_HOME}\\bin\\mvn versions:set -DnewVersion=$BN -DgenerateBackupPoms=false"                
         
         echo "Create a new branch with name release_${BN} ..."
