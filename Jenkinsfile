@@ -27,7 +27,7 @@ node ("master") {
     }
 }
 
-    node ("Mydocker") {
+    node ("utimagelabel") {
         // we can also use: withEnv(['M2_HOME=/usr/share/maven', 'JAVA_HOME=/usr']) {}
         env.MAVEN_HOME = '/opt/maven'
         env.M2_HOME = '/opt/maven'
